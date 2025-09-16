@@ -1,0 +1,25 @@
+# Ruff configuration
+target-version = "py311"
+line-length = 100
+
+[lint]
+select = [
+  "E",    # pycodestyle errors
+  "F",    # pyflakes
+  "I",    # isort
+  "B",    # flake8-bugbear
+  "UP",   # pyupgrade
+  "C90",  # mccabe complexity
+]
+ignore = [
+  "E501", # line-length handled by formatter/editor; keep warnings quiet
+]
+
+[lint.mccabe]
+max-complexity = 12
+
+[format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+docstring-code-format = true
