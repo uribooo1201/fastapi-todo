@@ -1,10 +1,13 @@
+# app/main.py
 from fastapi import FastAPI
 from .api.todos import router as todos_router
 from .db import Base, engine
 
+import app.models  # ★ 追加：User/Todo を登録
+
 app = FastAPI(title="FastAPI ToDo")
 
-# 開発容易化のため、自動でテーブル作成（本番はAlembicを推奨）
+# 開発容易化のため、自動でテーブル作成（本番はAlembic推奨）
 try:
     Base.metadata.create_all(bind=engine)
 except Exception as e:
